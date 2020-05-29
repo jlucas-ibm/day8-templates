@@ -320,6 +320,7 @@ parameters:
     from: '[a-zA-Z0-9]{16}'
   - name: DATABASE_NAME
     required: true
+    value: sampledb
     displayName: Database Name       
   - name: DATABASE_ADMIN_PASSWORD
     displayName: Database Administrator Password
