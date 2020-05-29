@@ -148,7 +148,7 @@ objects:
         - imageChangeParams:
             automatic: true
             containerNames:
-              - nodejs-mongodb
+              - test-nodejs
             from:
               kind: ImageStreamTag
               name: '${NAME}:latest'
@@ -332,5 +332,5 @@ parameters:
     description: The custom NPM mirror URL
     value: https://registry.npmjs.org
 labels:
-  app: nodejs-mongodb
+  app: test-nodejs
   template: nodejs-mongodb
