@@ -242,7 +242,7 @@ objects:
               - mongodb
             from:
               kind: ImageStreamTag
-              name: 'mongodb:3.4'
+              name: 'mongodb:3.6'
               namespace: 'openshift'
           type: ImageChange
         - type: ConfigChange
@@ -252,6 +252,16 @@ parameters:
     description: The name assigned to all of the frontend objects defined in this template.
     value: nodejs-mongodb
     required: true
+  - description: Version of NodeJS image to be used (6, 8, or latest).
+    displayName: Version of NodeJS Image
+    name: NODEJS_VERSION
+    required: true
+    value: "latest"
+  - description: Version of MongoDB image to be used (3.6 or latest).
+    displayName: Version of MongoDB Image
+    name: MONGODB_VERSION
+    required: true
+    value: "3.6"
   - name: MEMORY_LIMIT
     displayName: Memory Limit
     description: Maximum amount of memory the Node.js container can use.
@@ -266,6 +276,7 @@ parameters:
     displayName: Git Repository URL
     description: The URL of the repository with your application source code.
     required: true
+    value: https://github.com/sclorg/nodejs-ex.git
   - name: GIT_REF
     displayName: Git Reference
     description: >-
@@ -308,6 +319,7 @@ parameters:
     generate: expression
     from: '[a-zA-Z0-9]{16}'
   - name: DATABASE_NAME
+    required: true
     displayName: Database Name       
   - name: DATABASE_ADMIN_PASSWORD
     displayName: Database Administrator Password
@@ -317,6 +329,7 @@ parameters:
   - name: NPM_MIRROR
     displayName: Custom NPM Mirror URL
     description: The custom NPM mirror URL
+    value: https://registry.npmjs.org
 labels:
   app: nodejs-mongodb
   template: nodejs-mongodb
